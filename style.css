@@ -1,0 +1,156 @@
+/* Basic resets */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'New Amsterdam', serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f8f1f1;
+}
+
+.card {
+    width: 400px;
+    height: 600px;
+    perspective: 1500px;
+    box-shadow: 20px 25px 30px rgba(13, 2, 2, 0.812);
+    position: relative;
+}
+
+.outside, .inside {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transition: transform 0.8s ease-in-out;
+    transform-style: preserve-3d;
+    background-color: #fff;
+    border-radius: 15px;
+    transform-origin: left; /* Change the origin to left to open the card from the left */
+}
+
+.card:hover .outside {
+    transform: rotateY(-180deg); /* Rotate around the Y-axis to open from the left */
+}
+
+.front, .inside, .back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 15px;
+}
+
+.front {
+    border: 18.5px solid transparent;
+    border-image: url('https://i.pinimg.com/564x/79/8a/f2/798af2bfeba3b51a04c3d7959119efe3.jpg') 30 round;
+    text-align: center;
+    transform: rotateY(0deg); /* Front stays in place */
+}
+
+.back {
+    background-color: #ffffff; /* Set the solid color for the back page */
+    transform: rotateY(-180deg); /* Adjust for the left-side opening */
+}
+
+.hbd {
+    font-size: 3.5rem;
+    color: #ff9999;
+    text-shadow: 5px 1px 1px #d63447;
+    margin-top: 30px;
+}
+
+.image img {
+    max-width: 80%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.inside {
+    background-color: #fff;
+    transform: rotateY(0deg); /* The inside remains in place */
+    text-align: center;
+    padding: 30px;
+    justify-content: space-evenly;
+}
+
+.inside h1, .inside h4, .inside h2, .inside .cake, .inside .footer {
+    width: 100%;
+}
+
+h1.h1, h4.h4, h2.h2 {
+    color: #d63447;
+}
+
+.cake {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    margin-top: 20px;
+}
+
+.bottom-layer, .middle-layer, .top-layer {
+    position: absolute;
+    width: 200px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgb(104, 129, 212);
+    border-style: groove;
+    border-radius: 7px 7px 0 0;
+    overflow: hidden;
+}
+
+.bottom-layer {
+    height: 60px;
+    top: 120px;
+}
+
+.middle-layer {
+    height: 40px;
+    top: 80px;
+    background-color: rgb(104, 129, 212);
+}
+
+.top-layer {
+    height: 20px;
+    top: 60px;
+    background-color: rgb(104, 129, 212);
+}
+
+.bottom-layer:after, .middle-layer:after, .top-layer:after {
+    content: "";
+    position: absolute;
+    width: 30px;
+    height: 15px;
+    left: -5px;
+    border-radius: 0 0 50px 50px;
+    background-color: white;
+    box-shadow: 30px 0 white, 60px 0 white, 90px 0 white, 120px 0 white, 150px 0 white, 180px 0 white;
+}
+
+.candle {
+    position: absolute;
+    width: 10px;
+    height: 30px;
+    background-color: #ff9999;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 20px;
+    border-radius: 5px;
+}
+
+.flame {
+    position: absolute;
+    width: 10px;
+    height: 20px;
+    background-color: #ffcc00;
+    top: -5px;
+    left: 50%;
+    transform: translateX(-50%) rotate(0deg);
+    border-radius: 50% 50% 0 0;
+}

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday!</title>
+    <link href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
+</head>
+
+<body>
+    <div class="card">
+        <div class="inside">
+            <h1 class="h1">Happy 22nd Birthday!</h1>
+            <h4 class="h4">I hope your day will be as wonderful as you are.</h4>
+            <h2 class="h2">Have the best birthday ever!</h2>
+            <div class="cake">
+                <div class="bottom-layer"></div>
+                <div class="middle-layer"></div>
+                <div class="top-layer"></div>
+                <div class="candle"></div>
+                <div class="flame"></div> <!-- Corrected the flame div -->
+            </div>
+            <footer class="footer">With Love, Katja.</footer>
+        </div>
+
+        <div class="outside">
+            <div class="front">
+                <header class="hbd">Happy Birthday My Love!</header>
+                <div class="image">
+                    <img src="https://i.pinimg.com/564x/00/80/78/008078d3fef99eb9151c0da57454672c.jpg" alt="birthday cat image">
+                </div>
+            </div>
+            <div class="back"></div>
+        </div>
+    </div>
+
+    <script>
+        document.querySelector('.card').addEventListener('mouseenter', function() {
+            if (!this.classList.contains('confetti-fired')) {
+                confetti({
+                    particleCount: 100,
+                    spread: 70,
+                    origin: { y: 0.6 }
+                });
+                this.classList.add('confetti-fired');
+            }
+        });
+    </script>
+</body>
+
+</html>
